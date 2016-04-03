@@ -13,6 +13,6 @@ RUN zcat protobuf.tgz | tar xvf - && \
   make install && \
   make clean
 
-RUN go get -u github.com/golang/protobuf/protoc-gen-go
+RUN go get -u github.com/golang/protobuf/protoc-gen-go && go get google.golang.org/grpc
 
 ENTRYPOINT ["protoc"]
