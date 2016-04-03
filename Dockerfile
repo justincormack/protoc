@@ -11,6 +11,7 @@ RUN zcat protobuf.tgz | tar xvf - && \
   make && \
   make check && \
   make install && \
+  make clean && \
   ldconfig
 
 RUN go get -u github.com/golang/protobuf/protoc-gen-go
