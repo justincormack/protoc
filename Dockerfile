@@ -9,8 +9,7 @@ RUN zcat protobuf.tgz | tar xvf - && \
   cd protobuf-3.0.0-beta-2 && \
   ./configure --prefix=/usr && \
   make -j 4 && \
-  make install && \
-  make clean
+  make install
 
 RUN go get -u github.com/golang/protobuf/protoc-gen-go
 
