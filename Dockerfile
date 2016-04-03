@@ -1,0 +1,18 @@
+FROM golang:alpine
+
+RUN apk update && \
+  apk add build-base curl autoconf automake libtool file
+
+RUN curl -o protobuf.tgz -L https://github.com/google/protobuf/releases/download/v3.0.0-beta-2/protobuf-cpp-3.0.0-beta-2.tar.gz
+
+RUN zcat protobuf.tgz | tar xvf - && \
+  cd protobuf-3.0.0-beta-2 && \
+  ./configure --prefix=/usr && \
+  make && \
+  make check && \
+  make install && \
+  ldconfig
+
+RUN go get -u github.com/golang/protobuf/protoc-gen-go
+
+ENTRYPOINT ["protoc"]
