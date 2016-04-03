@@ -1,7 +1,7 @@
 FROM golang:alpine
 
 RUN apk update && \
-  apk add build-base curl autoconf automake libtool file
+  apk add build-base curl autoconf automake libtool file zlib-dev
 
 RUN curl -o protobuf.tgz -L https://github.com/google/protobuf/releases/download/v3.0.0-beta-2/protobuf-cpp-3.0.0-beta-2.tar.gz
 
